@@ -8,9 +8,11 @@ from pygame import Surface, Rect
 from pygame.font import Font
 
 from Code.Const import COLOR_WHITE, MENU_OPTION, EVENTO_ENEMY
+from Code.Enemy import Enemy
 from Code.Entity import Entity
 from Code.EntityFactory import EntityFactory
 from Code.EntityMediator import EntityMediator
+from Code.Player import Player
 
 
 class Level:
@@ -28,7 +30,7 @@ class Level:
     def run(self):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
         pygame.mixer_music.play(-1)
-        # pygame.mixer_music.set_volume(0.5)  # Diminui  o Volume da música
+        pygame.mixer_music.set_volume(0.3)  # Diminui  o Volume da música
         clock = pygame.time.Clock()
         while True:
             clock.tick(60)
@@ -36,6 +38,11 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)  # Aqui é desenhada as entidades
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot = ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
+
             # Texto para ser printado na tela com FPS
             self.level_text(14, f'FPS: {clock.get_fps():.0f}', COLOR_WHITE, (10, 10))
             self.level_text(14, f'Entidades: {len(self.entity_list)}', COLOR_WHITE, (10, 27))

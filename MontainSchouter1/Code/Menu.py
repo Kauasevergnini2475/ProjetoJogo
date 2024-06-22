@@ -18,7 +18,7 @@ class Menu:
     def run(self):
         pygame.mixer_music.load('./asset/Menu.mp3')
         pygame.mixer_music.play(-1)
-        # pygame.mixer_music.set_volume(0.5)  # Diminui  o Volume da música
+        # pygame.mixer_music.set_volume(0.3)  # Diminui  o Volume da música
         menu_option = 0
         while True:
             # Desenhar na Tela

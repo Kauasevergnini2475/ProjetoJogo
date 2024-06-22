@@ -1,9 +1,11 @@
+from Code.Const import WIN_WIDTH
 from Code.Enemy import Enemy
+from Code.EnemyShot import EnemyShot
 from Code.Entity import Entity
+from Code.PlayerShot import PlayerShot
 
 
 class EntityMediator:
-
 
     @staticmethod
     #     Os dois __ tornam o método protegido o que faz com que ele só possa ser usado dentro de EntityMediator
@@ -12,7 +14,12 @@ class EntityMediator:
         if isinstance(ent, Enemy):
             if ent.rect.right <= 0:
                 ent.health = 0
-
+        if isinstance(ent, PlayerShot):
+            if ent.rect.left >= WIN_WIDTH:
+                ent.health = 0
+        if isinstance(ent, EnemyShot):
+            if ent.rect.right >= WIN_WIDTH:
+                ent.health = 0
 
     @staticmethod
     def verify_collision(entity_list: list[Entity]):
