@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import pygame
 
 from Code.Const import ENTITY_SPEED, WIN_HEIGTH, WIN_WIDTH, PLAYER_KEY_UP, PLAYER_KEY_DOWN, PLAYER_KEY_LEFT, \
@@ -13,15 +13,19 @@ class Player(Entity):
 
     def move(self):
         pressed_key = pygame.key.get_pressed()
-        if pressed_key[PLAYER_KEY_UP[self.name]] and self.rect.top > 0: #Se a tecla seta para cima foi pressionada
+        # Se a tecla seta para cima foi pressionada
+        if pressed_key[PLAYER_KEY_UP[self.name]] and self.rect.top > 0:
             self.rect.centery -= ENTITY_SPEED[self.name]
-
-        if pressed_key[PLAYER_KEY_DOWN[self.name]] and self.rect.bottom < WIN_HEIGTH: #Se a tecla seta para baixo foi pressionada
+        # Se a tecla seta para baixo foi pressionada
+        if pressed_key[PLAYER_KEY_DOWN[self.name]] and self.rect.bottom < WIN_HEIGTH:
             self.rect.centery += ENTITY_SPEED[self.name]
-
-        if pressed_key[PLAYER_KEY_LEFT[self.name]] and self.rect.left > 0: #Se a tecla seta para esquerda foi pressionada
+        # Se a tecla seta para esquerda foi pressionada
+        if pressed_key[PLAYER_KEY_LEFT[self.name]] and self.rect.left > 0:
             self.rect.centerx -= ENTITY_SPEED[self.name]
-
-        if pressed_key[PLAYER_KEY_RIGHT[self.name]] and self.rect.right < WIN_WIDTH: #Se a tecla seta para direita foi pressionada
+        # Se a tecla seta para direita foi pressionada
+        if pressed_key[PLAYER_KEY_RIGHT[self.name]] and self.rect.right < WIN_WIDTH:
             self.rect.centerx += ENTITY_SPEED[self.name]
 
+    def shoot(self):
+        pressed_key = pygame.key.get_pressed()
+        if pressed_key[]
