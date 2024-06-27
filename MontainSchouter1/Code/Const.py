@@ -7,12 +7,21 @@ C_CYAN = (0, 127, 127)
 C_WHITE = (255, 255, 255)
 C_YELLOW = (255, 255, 128)
 C_BLACK_TR = (0, 0, 0, 150)  # Cor do fundo: preto com 150 de opacidade (transparência)
-
+C_BLACK = (0, 0, 0)
+C_RED = (255, 0, 0)
+C_GRAY = (128, 128, 128)
 # M
 MENU_OPTION = ('NEM GAME 1P',
                'NEM GAME 2P - COOPERATIVE',
                'NEM GAME 2P - COMPETITIVE',
+               'SCORE',
                'EXIT')
+
+MENU_OPTION_SPACE = (175 + 25,
+                     175 + 50,
+                     175 + 75,
+                     175 + 100,
+                     175 + 125)
 
 # W
 WIN_WIDTH = 576
@@ -129,4 +138,23 @@ PLAYER_KEY_RIGHT = {'Player1': pygame.K_RIGHT,
                     'Player2': pygame.K_d}
 
 PLAYER_KEY_SHOOT = {'Player1': pygame.K_LCTRL,
-                    'Player2': pygame.K_e}
+                    'Player2': pygame.K_j}
+
+# S
+
+SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
+             'EnterName': (WIN_WIDTH / 2, 80),
+             'Label': (WIN_WIDTH / 2, 90),
+             'Name': (WIN_WIDTH / 2, 110),
+             0: (WIN_WIDTH / 2, 110),
+             1: (WIN_WIDTH / 2, 130),
+             2: (WIN_WIDTH / 2, 150),
+             3: (WIN_WIDTH / 2, 170),
+             4: (WIN_WIDTH / 2, 190),
+             5: (WIN_WIDTH / 2, 210),
+             6: (WIN_WIDTH / 2, 230),
+             7: (WIN_WIDTH / 2, 250),
+             8: (WIN_WIDTH / 2, 270),
+             9: (WIN_WIDTH / 2, 290),
+
+             }
